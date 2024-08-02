@@ -1,0 +1,25 @@
+<single-spa-router base="/">
+  <div class="main-content">
+    <application
+            name="@mf/apps-portal"
+            loader="loadingComponent"
+            error="errorComponent"
+    ></application>
+
+    <route path="embed-dashboard">
+      <application
+              name="@mf/apps-embed-dashboard"
+              loader="loadingComponent"
+              error="errorComponent"
+      ></application>
+    </route>
+
+    <route path="dashboard">
+      <application
+              name="@mf/apps-dashboard"
+              loader="loadingComponent"
+              error="errorComponent"
+      ></application>
+    </route>
+  </div>
+</single-spa-router>

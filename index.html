@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microfrontend</title>
+    <meta name="description" content="Microfrontend Demo">
+    <meta name="theme-color" content="#ffd500">
+    <meta name="importmap-type" content="systemjs-importmap" />
+
+    <meta name="description" content="Microfrontend example">
+    <meta name="theme-color" content="#ffd500">
+
+    <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/vite.svg"
+    />
+
+    {{#if isLocal}}
+    <script type="systemjs-importmap" src="/importmap-apps.dev.json"></script>
+    <script type="systemjs-importmap" src="/importmap-deps.dev.json"></script>
+
+    <script src="/node_modules/systemjs/dist/system.js"></script>
+    <script src="/node_modules/systemjs/dist/extras/amd.js"></script>
+
+    <!-- TypeScript，systemjs-babel -->
+    <script src="/node_modules/systemjs-babel/dist/systemjs-babel.js"></script>
+
+    {{else}}
+
+    <script type="systemjs-importmap" src="/importmap-apps.json"></script>
+    <script type="systemjs-importmap" src="/importmap-deps.json"></script>
+
+    <script src="/libs/system.min.js"></script>
+    <script src="/libs/amd.min.js"></script>
+    {{/if}}
+
+    <script type="systemjs-module" src="import:@mf/config"></script>
+
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

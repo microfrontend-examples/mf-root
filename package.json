@@ -1,0 +1,28 @@
+{
+  "name": "mf-root",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "build:preview": "npm run build && npm run preview"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-static-copy": "^1.0.6"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "single-spa": "^6.0.1",
+    "single-spa-layout": "^2.2.0",
+    "systemjs": "^6.15.1",
+    "systemjs-babel": "^0.3.2"
+  }
+}

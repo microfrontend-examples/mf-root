@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@mf/config": "/microfrontend-config.js",
+    "@mf/apps-portal": "your_portal_url_here",
+    "@mf/apps-dashboard": "http://localhost:4174/maintenance-module-lite.js",
+    "@mf/apps-embed-dashboard": "http://localhost:4174/mmlite-embed.js"
+  }
+}
