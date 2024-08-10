@@ -5,10 +5,21 @@ import {
 } from "single-spa-layout";
 import { registerApplication, start } from "single-spa";
 import microfrontendLayout from './microfrontend-layout.html?raw';
+import {Clerk} from "@clerk/clerk-js";
+
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+
+const clerk = new Clerk(clerkPubKey);
+await clerk.load();
+
+// @ts-ignore children need this
+window.globalThis.Clerk = clerk;
 
 const routes = constructRoutes(
     microfrontendLayout, {
-        props: {},
+        props: {
+            clerkPubKey,
+        },
         loaders: {
             loadingComponent: `
           <div class="progress-loader__container">

@@ -1,18 +1,16 @@
 import {defineConfig, loadEnv, PluginOption} from "vite";
 import {viteStaticCopy} from "vite-plugin-static-copy";
 import handlebars from 'vite-plugin-handlebars'
-import {resolve} from "node:url";
 
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode}) => {
-  const env = loadEnv(mode, process.cwd(), "");
+  loadEnv(mode, process.cwd(), "");
 
   return {
     server: {
       port: 9000,
     },
-    envPrefix: "REACT_APP_",
     build: {
       outDir: "build",
       rollupOptions: {
