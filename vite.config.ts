@@ -1,7 +1,6 @@
-import {defineConfig, loadEnv, PluginOption} from "vite";
+import {defineConfig, loadEnv} from "vite";
 import {viteStaticCopy} from "vite-plugin-static-copy";
-import handlebars from 'vite-plugin-handlebars'
-
+import vitePluginSingleSpa from "vite-plugin-single-spa";
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode}) => {
@@ -13,31 +12,9 @@ export default defineConfig(({mode}) => {
     },
     build: {
       outDir: "build",
-      rollupOptions: {
-        input: {
-          index: "./index.html",
-          "microfrontend-config": "./src/microfrontend-config.ts"
-        },
-        output: {
-          format: "system",
-          entryFileNames: "[name].js",
-          assetFileNames: "[name].[ext]",
-          globals: {
-            react: "react",
-            "react-dom": "reactDOM",
-            'single-spa': 'singleSpa',
-            'single-spa-layout': 'singleSpaLayout'
-          },
-        },
-        preserveEntrySignatures: "strict",
-      },
+      target: "esnext",
     },
     plugins: [
-      handlebars({
-        context: {
-          isLocal: mode === 'development'
-        }
-      }) as unknown as PluginOption,
       viteStaticCopy({
         targets: [
           {
@@ -57,7 +34,14 @@ export default defineConfig(({mode}) => {
             dest: 'libs',
           }
         ]
-      })
+      }),
+      vitePluginSingleSpa({
+        type: "root",
+        importMaps: {
+          dev: ['./src/importmap-apps.dev.json', './src/importmap-deps.dev.json'],
+          build: ['./src/importmap-apps.json', './src/importmap-deps.json'],
+        },
+      }),
     ]
   };
 });

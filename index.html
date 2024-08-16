@@ -18,26 +18,7 @@
             href="/vite.svg"
     />
 
-    {{#if isLocal}}
-    <script type="systemjs-importmap" src="/importmap-apps.dev.json"></script>
-    <script type="systemjs-importmap" src="/importmap-deps.dev.json"></script>
-
-    <script src="/node_modules/systemjs/dist/system.js"></script>
-    <script src="/node_modules/systemjs/dist/extras/amd.js"></script>
-
-    <!-- TypeScript，systemjs-babel -->
-    <script src="/node_modules/systemjs-babel/dist/systemjs-babel.js"></script>
-
-    {{else}}
-
-    <script type="systemjs-importmap" src="/importmap-apps.json"></script>
-    <script type="systemjs-importmap" src="/importmap-deps.json"></script>
-
-    <script src="/libs/system.min.js"></script>
-    <script src="/libs/amd.min.js"></script>
-    {{/if}}
-
-    <script type="systemjs-module" src="import:@mf/config"></script>
+    <script type="module" src="/src/microfrontend-config.ts"></script>
 
   </head>
   <body>

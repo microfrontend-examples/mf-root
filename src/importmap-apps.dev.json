@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@mf/config": "./src/microfrontend-config.ts",
+    "@mf/apps-portal": "http://localhost:4174/src/sspa-main.tsx"
+  }
+}

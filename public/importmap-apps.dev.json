@@ -1,6 +1,0 @@
-{
-  "imports": {
-    "@mf/config": "./src/microfrontend-config.ts",
-    "@mf/apps-portal": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-  }
-}

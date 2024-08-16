@@ -13,7 +13,7 @@
     "@types/node": "^22.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",
-    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-single-spa": "^0.7.0",
     "vite-plugin-static-copy": "^1.0.6"
   },
   "dependencies": {
