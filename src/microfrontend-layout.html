@@ -1,4 +1,4 @@
-<single-spa-router base="/">
+<single-spa-router base="/portal/">
   <div class="main-content">
     <application
             name="@mf/apps-portal"
@@ -7,15 +7,7 @@
             props="clerkPubKey"
     ></application>
 
-    <route path="embed-dashboard">
-      <application
-              name="@mf/apps-embed-dashboard"
-              loader="loadingComponent"
-              error="errorComponent"
-      ></application>
-    </route>
-
-    <route path="dashboard">
+    <route path="application-1">
       <application
               name="@mf/apps-dashboard"
               loader="loadingComponent"
