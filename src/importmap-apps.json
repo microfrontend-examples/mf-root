@@ -2,6 +2,6 @@
   "imports": {
     "@mf/config": "/microfrontend-config.js",
     "@mf/apps-portal": "http://localhost:4174/sspa-main.js",
-    "@mf/apps-dashboard": "http://localhost:4175/sspa-main.js"
+    "@mf/apps-application1": "http://localhost:4175/spa.js"
   }
 }
