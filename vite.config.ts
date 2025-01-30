@@ -10,6 +10,9 @@ export default defineConfig(({mode}) => {
     server: {
       port: 9000,
     },
+    preview: {
+      port: 9000,
+    },
     build: {
       outDir: "build",
       target: "esnext",
