@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/portal/application-1/*"
+  to = "https://vocal-starlight-984587.netlify.app/portal/application-1/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/portal/*"
+  to = "https://unrivaled-cupcake-c89aeb.netlify.app/portal/:splat"
+  status = 200
+  force = true
