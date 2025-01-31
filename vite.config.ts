@@ -4,14 +4,14 @@ import vitePluginSingleSpa from "vite-plugin-single-spa";
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode}) => {
-  loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, process.cwd(), "");
 
   return {
     server: {
-      port: 9000,
+      port: Number(env.VITE_PORT),
     },
     preview: {
-      port: 9000,
+      port: Number(env.VITE_PORT),
     },
     build: {
       outDir: "build",
