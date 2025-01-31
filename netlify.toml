@@ -12,6 +12,6 @@
 
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/:splat"
   status = 200
   force = true
