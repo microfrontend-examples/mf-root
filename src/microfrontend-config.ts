@@ -1,9 +1,5 @@
-import {
-    constructRoutes,
-    constructApplications,
-    constructLayoutEngine,
-} from "single-spa-layout";
-import { registerApplication, start } from "single-spa";
+import {constructApplications, constructLayoutEngine, constructRoutes,} from "single-spa-layout";
+import {addErrorHandler, getAppStatus, LOAD_ERROR, registerApplication, start} from "single-spa";
 import microfrontendLayout from './microfrontend-layout.html?raw';
 import {Clerk} from "@clerk/clerk-js";
 
@@ -52,6 +48,16 @@ const layoutEngine = constructLayoutEngine({
 });
 
 applications.forEach(registerApplication);
+
+addErrorHandler(async(error: Error) => {
+    // @ts-ignore
+    if(getAppStatus(error.appOrParcelName) === LOAD_ERROR) {
+        // @ts-ignore
+        const moduleUrl = await import.meta.resolve(error.appOrParcelName);
+        // @ts-ignore
+        await import.meta.invalidate(moduleUrl);
+    }
+})
 
 layoutEngine.activate();
 start();
